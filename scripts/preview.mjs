@@ -1,10 +1,10 @@
-// Serves the built "out" folder at http://localhost:4173/alzamam/
+// Serves the built "out" folder at http://localhost:4173/al-zamzam-cooling/
 // exactly like GitHub Pages will. Run "npm run build" first, then "npm run preview".
 import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
 import { extname, join, normalize } from "node:path";
 
-const BASE_PATH = "/alzamam"; // must match basePath in next.config.ts
+const BASE_PATH = "/al-zamzam-cooling"; // must match basePath in next.config.ts
 const PORT = 4173;
 const OUT_DIR = join(process.cwd(), "out");
 

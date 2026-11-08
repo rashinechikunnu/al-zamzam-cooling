@@ -37,8 +37,8 @@ jobs:
           cache: npm
 
       # Reads your Pages settings. base_url is the live address,
-      # e.g. https://user.github.io/alzamam or https://www.your-domain.com
-      # (the /alzamam base path itself is set in next.config.ts).
+      # e.g. https://user.github.io/al-zamzam-cooling or https://www.your-domain.com
+      # (the /al-zamzam-cooling base path itself is set in next.config.ts).
       - name: Read GitHub Pages settings
         id: pages
         uses: actions/configure-pages@v5

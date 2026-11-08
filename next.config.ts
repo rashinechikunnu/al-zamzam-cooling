@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
-// The site is served from https://<username>.github.io/alzamam/
+// The site is served from https://<username>.github.io/al-zamzam-cooling/
 // If you later connect a custom domain, change this to "".
-const basePath = "/alzamam";
+const basePath = "/al-zamzam-cooling";
 
 const nextConfig: NextConfig = {
   output: "export",

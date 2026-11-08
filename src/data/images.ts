@@ -8,7 +8,7 @@ function unsplash(photoId: string, width: number): string {
   return `https://images.unsplash.com/${photoId}?w=${width}&q=70&auto=format&fit=crop`;
 }
 
-/** Path to a photo in public/images/, with the site's base path (/alzamam) added. */
+/** Path to a photo in public/images/, with the site's base path (/al-zamzam-cooling) added. */
 export function localImage(fileName: string): string {
   return `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/${fileName}`;
 }
