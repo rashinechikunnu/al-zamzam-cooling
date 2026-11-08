@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Globe, Mail, MapPin, Phone } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import ContactForm from "@/components/ContactForm";
 import ContactFormWithParams from "@/components/ContactFormWithParams";
@@ -13,7 +13,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Contact Us — AC & Refrigeration Services in Ajman",
   description:
-    "Contact Al Zamams in Industrial Area 1, Ajman, UAE for AC installation and maintenance, chiller, freezer and cold room services, AMC and kitchen equipment maintenance.",
+    "Contact Al ZamZam Cooling in Industrial Area 1, Ajman, UAE for AC installation and maintenance, chiller, freezer and cold room services, AMC and kitchen equipment maintenance.",
   path: "/contact/",
 });
 
@@ -25,7 +25,7 @@ export default function ContactPage() {
       <PageHeader
         breadcrumb="Contact"
         title="Contact Us"
-        description="Send us your enquiry for air conditioning, refrigeration, cold room or kitchen equipment services, and our team will get back to you."
+        description="Send us your enquiry for air conditioning, refrigeration, cold room or kitchen equipment services. Our office is in Ajman, and we work all over the UAE."
         image={images.acUnits}
       />
 
@@ -46,12 +46,14 @@ export default function ContactPage() {
               <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
                 <WhatsAppIcon /> WhatsApp Enquiry
               </a>
-              {/* Call and Email buttons appear once the details are added in src/config/site.ts */}
-              {contact.phone && (
-                <a href={`tel:${contact.phone}`} className="btn btn-navy">
-                  <Phone className="h-4 w-4" aria-hidden="true" /> Call {contact.phoneDisplay || contact.phone}
-                </a>
-              )}
+              {/* Call and Email buttons come from src/config/site.ts */}
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                {contact.phones.map((phone) => (
+                  <a key={phone.dial} href={`tel:${phone.dial}`} className="btn btn-navy">
+                    <Phone className="h-4 w-4" aria-hidden="true" /> Call {phone.display}
+                  </a>
+                ))}
+              </div>
               {contact.email && (
                 <a href={`mailto:${contact.email}`} className="btn btn-outline">
                   <Mail className="h-4 w-4" aria-hidden="true" /> Email Us
@@ -65,7 +67,7 @@ export default function ContactPage() {
                   <MapPin className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <div>
-                  <h3 className="font-sans text-sm font-bold uppercase tracking-wider text-navy">Address</h3>
+                  <h3 className="font-sans text-sm font-bold uppercase tracking-wider text-navy">Office Address</h3>
                   <address className="mt-1 not-italic leading-relaxed text-body/85">
                     {address.line1},<br />
                     {address.line2},<br />
@@ -73,16 +75,18 @@ export default function ContactPage() {
                   </address>
                 </div>
               </li>
-              {contact.phone && (
+              {contact.phones.length > 0 && (
                 <li className="flex gap-4 p-6">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-navy text-yellow">
                     <Phone className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <div>
                     <h3 className="font-sans text-sm font-bold uppercase tracking-wider text-navy">Phone</h3>
-                    <a href={`tel:${contact.phone}`} className="mt-1 block text-body/85 hover:text-navy">
-                      {contact.phoneDisplay || contact.phone}
-                    </a>
+                    {contact.phones.map((phone) => (
+                      <a key={phone.dial} href={`tel:${phone.dial}`} className="mt-1 block text-body/85 hover:text-navy">
+                        {phone.display}
+                      </a>
+                    ))}
                   </div>
                 </li>
               )}
@@ -93,20 +97,22 @@ export default function ContactPage() {
                   </span>
                   <div>
                     <h3 className="font-sans text-sm font-bold uppercase tracking-wider text-navy">Email</h3>
-                    <a href={`mailto:${contact.email}`} className="mt-1 block break-all text-body/85 hover:text-navy">
-                      {contact.email}
+                    <a href={`mailto:${contact.email}`} className="mt-1 block text-body/85 hover:text-navy">
+                      {contact.email.split("@")[0]}
+                      <wbr />@{contact.email.split("@")[1]}
                     </a>
                   </div>
                 </li>
               )}
               <li className="flex gap-4 p-6">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-navy text-yellow">
-                  <Clock className="h-5 w-5" aria-hidden="true" />
+                  <Globe className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <div>
-                  <h3 className="font-sans text-sm font-bold uppercase tracking-wider text-navy">Enquiries</h3>
+                  <h3 className="font-sans text-sm font-bold uppercase tracking-wider text-navy">Service Area</h3>
                   <p className="mt-1 leading-relaxed text-body/85">
-                    Send your enquiry any time on WhatsApp and our team will respond.
+                    Office in {siteConfig.officeLocation}. We work all over the UAE, serving customers since{" "}
+                    {siteConfig.foundedYear}.
                   </p>
                 </div>
               </li>

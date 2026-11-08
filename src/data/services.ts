@@ -9,7 +9,7 @@ import type { Service } from "@/types";
 import { images } from "./images";
 
 /**
- * The five Al Zamams services.
+ * The five Al ZamZam Cooling services.
  * The homepage cards, the Services page, the footer list and the contact
  * form's "Service Required" dropdown are all built from this list.
  */

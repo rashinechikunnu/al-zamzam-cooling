@@ -18,7 +18,8 @@ export default function Footer() {
           <Logo variant="light" />
           <p className="mt-6 max-w-sm text-sm leading-relaxed">
             Air conditioning, refrigeration, chiller, freezer, cold room and commercial kitchen equipment
-            installation and maintenance services in Ajman, United Arab Emirates.
+            installation and maintenance. Office in {siteConfig.officeLocation}, working all over the UAE since{" "}
+            {siteConfig.foundedYear}.
           </p>
           <a
             href={whatsappLink()}
@@ -72,19 +73,24 @@ export default function Footer() {
               </address>
             </li>
             {/* Phone and email only appear once they are added in src/config/site.ts */}
-            {contact.phone && (
+            {contact.phones.length > 0 && (
               <li className="flex gap-3">
-                <Phone className="h-5 w-5 shrink-0 text-yellow" aria-hidden="true" />
-                <a href={`tel:${contact.phone}`} className="hover:text-yellow">
-                  {contact.phoneDisplay || contact.phone}
-                </a>
+                <Phone className="mt-0.5 h-5 w-5 shrink-0 text-yellow" aria-hidden="true" />
+                <span className="flex flex-col gap-1">
+                  {contact.phones.map((phone) => (
+                    <a key={phone.dial} href={`tel:${phone.dial}`} className="hover:text-yellow">
+                      {phone.display}
+                    </a>
+                  ))}
+                </span>
               </li>
             )}
             {contact.email && (
               <li className="flex gap-3">
                 <Mail className="h-5 w-5 shrink-0 text-yellow" aria-hidden="true" />
-                <a href={`mailto:${contact.email}`} className="break-all hover:text-yellow">
-                  {contact.email}
+                <a href={`mailto:${contact.email}`} className="hover:text-yellow">
+                  {contact.email.split("@")[0]}
+                  <wbr />@{contact.email.split("@")[1]}
                 </a>
               </li>
             )}
@@ -107,7 +113,9 @@ export default function Footer() {
           <p>
             © {year} {siteConfig.name}. All rights reserved.
           </p>
-          <p className="text-white/50">{siteConfig.tagline}</p>
+          <p className="text-white/50">
+            {siteConfig.tagline} · Since {siteConfig.foundedYear}
+          </p>
         </div>
       </div>
     </footer>

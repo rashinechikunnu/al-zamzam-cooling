@@ -43,10 +43,11 @@ export default function AboutPreview() {
 
         {/* Text */}
         <div>
-          <SectionHeading eyebrow="About Al Zamams" title="Your Trusted Cooling Solutions Partner" />
+          <SectionHeading eyebrow="About Al ZamZam Cooling" title="Your Trusted Cooling Solutions Partner" />
           <p className="mt-6 text-lg leading-relaxed text-body/80">
-            Al Zamams provides air conditioning, refrigeration and cooling solutions for commercial and industrial
-            requirements. We focus on professional installation, maintenance and reliable technical support.
+            Since 2020, Al ZamZam Cooling has provided air conditioning, refrigeration and cooling solutions for
+            commercial and industrial requirements. From our office in Ajman, we work all over the UAE, focusing on
+            professional installation, maintenance and reliable technical support.
           </p>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
             {highlights.map((item) => (

@@ -12,8 +12,8 @@ export default function Location({ showHeading = true }: { showHeading?: boolean
         {showHeading && (
           <SectionHeading
             eyebrow="Visit Us"
-            title="Our Location"
-            description="Find Al Zamams in Industrial Area 1, Ajman."
+            title="Our Office in Ajman"
+            description="Our office is in Industrial Area 1, Ajman. Our team works on sites all over the UAE."
           />
         )}
 

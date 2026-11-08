@@ -7,12 +7,12 @@
  * structured data read from this file. Change a value here and it
  * updates everywhere on the website.
  *
- * Empty strings ("") mean "not supplied yet". Anything empty is
- * hidden on the website automatically, so no fake details are shown.
+ * Empty values ("" or an empty list) are hidden on the website
+ * automatically, so no fake details are ever shown.
  */
 
 export const siteConfig = {
-  name: "Al Zamams",
+  name: "Al ZamZam Cooling",
   tagline: "The Complete Cooling Solution",
   category: "HVAC, Air Conditioning & Refrigeration Solutions",
 
@@ -24,9 +24,9 @@ export const siteConfig = {
    */
   url: (process.env.NEXT_PUBLIC_SITE_URL || "https://www.example.com").replace(/\/$/, ""),
 
-  title: "Al Zamams | AC Installation & Refrigeration Services in Ajman",
+  title: "Al ZamZam Cooling | AC Installation & Refrigeration Services in Ajman & UAE",
   description:
-    "Al Zamams provides AC installation, chiller and freezer services, cold room installation, AMC and commercial kitchen equipment maintenance in Ajman, UAE.",
+    "Al ZamZam Cooling provides AC installation, chiller and freezer services, cold room installation, AMC and commercial kitchen equipment maintenance. Office in Ajman, working all over the UAE since 2020.",
 
   address: {
     line1: "Industrial Area 1",
@@ -36,22 +36,32 @@ export const siteConfig = {
     countryCode: "AE",
   },
 
+  /** Year the company started. */
+  foundedYear: 2020,
+
+  /** Where the office is, and where the team works. */
+  officeLocation: "Ajman",
+  serviceArea: "All over the UAE",
+
   contact: {
     /**
      * WhatsApp number in INTERNATIONAL format, digits only, no "+" or spaces.
-     * Example format: "9715XXXXXXXX"  (971 = UAE country code)
-     * Leave "" until the real business number is supplied.
+     * 971 = UAE country code, then the mobile number without its leading 0.
+     * 050 920 2450  →  971509202450
      */
-    whatsapp: "",
+    whatsapp: "971509202450",
 
-    /** Phone number as it should be dialled, e.g. "+9716XXXXXXX". */
-    phone: "",
+    /**
+     * Phone numbers. "dial" is used for the tap-to-call link,
+     * "display" is how the number is shown on the website.
+     */
+    phones: [
+      { dial: "+971509202450", display: "050 920 2450" },
+      { dial: "+971507742450", display: "050 774 2450" },
+    ],
 
-    /** Phone number as it should be displayed, e.g. "+971 6 XXX XXXX". */
-    phoneDisplay: "",
-
-    /** Business email, e.g. "info@your-domain.com". */
-    email: "",
+    /** Business email (from the company visiting card). */
+    email: "alzamzamcoolingsolutions@gmail.com",
   },
 
   /**
@@ -69,7 +79,7 @@ export const siteConfig = {
     encodeURIComponent("Industrial Area 1, Opp. Al Ain Floor Mill, Ajman, United Arab Emirates"),
 
   whatsappDefaultMessage:
-    "Hello Al Zamams, I would like to enquire about your cooling solutions and services.",
+    "Hello Al ZamZam Cooling, I would like to enquire about your cooling solutions and services.",
 
   /** Main navigation links. */
   nav: [

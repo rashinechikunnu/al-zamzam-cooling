@@ -11,7 +11,7 @@ type CTAProps = {
 /** Navy call-to-action banner, reused on several pages. */
 export default function CTA({
   title = "Looking for Reliable Cooling Solutions?",
-  description = "Contact Al Zamams for AC, refrigeration, chiller, freezer and cold room services.",
+  description = "Contact Al ZamZam Cooling for AC, refrigeration, chiller, freezer and cold room services.",
 }: CTAProps) {
   return (
     <section className="py-20 sm:py-24">

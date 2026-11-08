@@ -28,7 +28,7 @@ export default function ServicesPage() {
       />
 
       {/* Jump links to each service */}
-      <nav aria-label="Services on this page" className="sticky top-[117px] z-30 hidden border-b border-line bg-white/95 backdrop-blur md:block">
+      <nav aria-label="Services on this page" className="sticky top-[81px] z-30 hidden border-b border-line bg-white/95 backdrop-blur md:block">
         <ul className="container-site flex gap-1 overflow-x-auto py-3">
           {services.map((service) => (
             <li key={service.slug} className="shrink-0">
@@ -105,7 +105,7 @@ export default function ServicesPage() {
                     </Link>
                     <a
                       href={whatsappLink(
-                        `Hello Al Zamams, I would like to enquire about your ${service.title} service.`,
+                        `Hello Al ZamZam Cooling, I would like to enquire about your ${service.title} service.`,
                       )}
                       target="_blank"
                       rel="noopener noreferrer"

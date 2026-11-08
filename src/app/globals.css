@@ -6,21 +6,21 @@
  *   bg-navy, text-yellow, bg-light, text-body, font-display
  */
 @theme {
-  --color-navy: #17245d;
-  --color-navy-700: #1e2e72;
-  --color-navy-900: #0f1840;
-  --color-yellow: #f9d500;
-  --color-yellow-600: #e0c000;
-  --color-dark: #111827;
-  --color-light: #f7f8fc;
+  --color-navy: #001e5c;
+  --color-navy-700: #0a2d78;
+  --color-navy-900: #00143f;
+  --color-yellow: #fbe000;
+  --color-yellow-600: #e3cb00;
+  --color-dark: #0b1324;
+  --color-light: #f5f7fb;
   --color-body: #333333;
-  --color-line: #e3e6f0;
+  --color-line: #e2e6ef;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-barlow), var(--font-inter), ui-sans-serif, sans-serif;
+  --font-display: var(--font-poppins), var(--font-inter), ui-sans-serif, sans-serif;
 
-  --shadow-card: 0 1px 2px rgb(15 24 64 / 0.04), 0 8px 24px -8px rgb(15 24 64 / 0.12);
-  --shadow-card-hover: 0 2px 4px rgb(15 24 64 / 0.06), 0 20px 40px -12px rgb(15 24 64 / 0.25);
+  --shadow-card: 0 1px 2px rgb(0 30 92 / 0.04), 0 8px 24px -8px rgb(0 30 92 / 0.12);
+  --shadow-card-hover: 0 2px 4px rgb(0 30 92 / 0.06), 0 20px 40px -12px rgb(0 30 92 / 0.25);
 
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 
@@ -44,8 +44,8 @@ html {
 
 @media (min-width: 768px) {
   html {
-    /* Taller header (top bar + navbar + services jump links) on tablets and up */
-    scroll-padding-top: 11.5rem;
+    /* Navbar + services jump links on tablets and up */
+    scroll-padding-top: 9.5rem;
   }
 }
 
@@ -63,7 +63,7 @@ html {
   h4 {
     font-family: var(--font-display);
     color: var(--color-navy);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
 
   /* Visible keyboard focus for accessibility */

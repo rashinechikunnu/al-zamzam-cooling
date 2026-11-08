@@ -1,4 +1,4 @@
-# Al Zamams — Company Website
+# Al ZamZam Cooling — Company Website
 
 **The Complete Cooling Solution** · HVAC, Air Conditioning & Refrigeration · Ajman, UAE
 
@@ -28,24 +28,26 @@ You need **Node.js 20.9 or newer** (check with `node -v`).
 | Change the **address** or map link | `src/config/site.ts` → `address`, `mapsLink`, `mapsEmbed` |
 | Change **service text** | `src/data/services.ts` |
 | Replace **photos** | `src/data/images.ts` (see instructions at the top of the file) |
-| Use the **official logo** | `src/components/Logo.tsx` (instructions inside) |
+| Replace the **logo** | `public/logo/alzamzam-logo.svg` and `alzamzam-logo-white.svg` (browser-tab icon: `src/app/icon.svg`) |
 | Change **brand colours / fonts** | `src/app/globals.css` (`@theme` block) and `src/app/layout.tsx` |
 | Change **page SEO titles** | the `pageMetadata({...})` call at the top of each `page.tsx` |
 
-### Adding the WhatsApp number
+### Changing the WhatsApp number, phones or email
 
 In `src/config/site.ts`:
 
 ```ts
 contact: {
-  whatsapp: "9715XXXXXXXX",      // international format, digits only, no + or spaces
-  phone: "+9716XXXXXXX",         // used for the "Call" button (tel: link)
-  phoneDisplay: "+971 6 XXX XXXX",
-  email: "info@your-domain.com",
+  whatsapp: "971509202450",   // international format, digits only: 971 + number without the first 0
+  phones: [
+    { dial: "+971509202450", display: "050 920 2450" },
+    { dial: "+971507742450", display: "050 774 2450" },
+  ],
+  email: "alzamzamcoolingsolutions@gmail.com",
 },
 ```
 
-Empty values are hidden automatically. The **Call** and **Email** buttons, and the phone/email lines in the footer, appear as soon as you fill them in. Until a WhatsApp number is added, WhatsApp buttons still open WhatsApp with the message ready, and the visitor picks the contact.
+All WhatsApp buttons, the contact form, the Call buttons, the footer and Google's business data update automatically.
 
 ---
 
@@ -122,7 +124,7 @@ Install Git and create a free GitHub account first. Then:
 
 ```bash
 git add .
-git commit -m "Al Zamams website"
+git commit -m "Al ZamZam Cooling website"
 git branch -M main
 git remote add origin https://github.com/<your-username>/al-zamams-website.git
 git push -u origin main
@@ -188,15 +190,14 @@ Run the workflow again (Actions → *Deploy to GitHub Pages* → **Run workflow*
 
 ### Step E: Search engines
 
-Add the site to [Google Search Console](https://search.google.com/search-console) and submit `https://www.your-domain.com/sitemap.xml`. A **Google Business Profile** for Al Zamams also helps local "Ajman" searches. Once it exists, paste its share link into `mapsLink` in `src/config/site.ts`.
+Add the site to [Google Search Console](https://search.google.com/search-console) and submit `https://www.your-domain.com/sitemap.xml`. A **Google Business Profile** for Al ZamZam Cooling also helps local "Ajman" searches. Once it exists, paste its share link into `mapsLink` in `src/config/site.ts`.
 
 ---
 
 ## 7. Before going live: checklist
 
-- [ ] WhatsApp number, phone and email added in `src/config/site.ts`
-- [ ] Official logo added (`src/components/Logo.tsx`)
-- [ ] Favicon replaced (`src/app/favicon.ico`)
+- [x] WhatsApp number, phones and email added in `src/config/site.ts`
+- [x] Official logo and browser-tab icon added
 - [ ] Real project photos added if available (`src/data/images.ts`)
 - [ ] Map pin checked against the real location (`mapsLink` / `mapsEmbed`)
 - [ ] Custom domain connected and **Enforce HTTPS** ticked

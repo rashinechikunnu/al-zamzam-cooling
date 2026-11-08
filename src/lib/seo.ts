@@ -50,8 +50,7 @@ export function pageMetadata({
 
 /**
  * LocalBusiness structured data (JSON-LD) for Google.
- * Uses only verified company details from src/config/site.ts —
- * phone and email are added automatically once they are filled in.
+ * Uses only verified company details from src/config/site.ts.
  */
 export function localBusinessJsonLd() {
   const { address, contact } = siteConfig;
@@ -63,6 +62,7 @@ export function localBusinessJsonLd() {
     slogan: siteConfig.tagline,
     description: siteConfig.description,
     url: siteConfig.url,
+    logo: `${siteConfig.url}/logo/alzamzam-logo.svg`,
     image: `${images.hero.src}?w=1200&auto=format&q=70`,
     address: {
       "@type": "PostalAddress",
@@ -71,6 +71,7 @@ export function localBusinessJsonLd() {
       addressRegion: address.city,
       addressCountry: address.countryCode,
     },
+    foundingDate: String(siteConfig.foundedYear),
     areaServed: { "@type": "Country", name: address.country },
     hasMap: siteConfig.mapsLink,
     knowsAbout: [
@@ -84,7 +85,7 @@ export function localBusinessJsonLd() {
     ],
   };
 
-  if (contact.phone) data.telephone = contact.phone;
+  if (contact.phones.length > 0) data.telephone = contact.phones.map((phone) => phone.dial);
   if (contact.email) data.email = contact.email;
 
   return data;

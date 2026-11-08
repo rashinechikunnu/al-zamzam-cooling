@@ -27,7 +27,7 @@ const reasons: Feature[] = [
   },
   {
     title: "Commercial & Industrial Services",
-    text: "Cooling services for shops, restaurants, warehouses, offices and industrial facilities.",
+    text: "Cooling services for shops, restaurants, warehouses, offices and industrial facilities all over the UAE.",
     icon: Building2,
   },
   {
@@ -53,8 +53,8 @@ export default function WhyChooseUs() {
       <div className="container-site relative">
         <SectionHeading
           eyebrow="Why Choose Us"
-          title="Why Choose Al Zamams?"
-          description="Practical, dependable cooling services for businesses across Ajman and the UAE."
+          title="Why Choose Al ZamZam Cooling?"
+          description="Practical, dependable cooling services since 2020 — from our office in Ajman to sites all over the UAE."
           align="center"
           tone="light"
         />

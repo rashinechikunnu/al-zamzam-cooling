@@ -6,7 +6,7 @@ export type SiteImage = {
   alt: string;
 };
 
-/** One service offered by Al Zamams. */
+/** One service offered by Al ZamZam Cooling. */
 export type Service = {
   /** Short id, also used as the #anchor on the Services page, e.g. "ac-installation". */
   slug: string;

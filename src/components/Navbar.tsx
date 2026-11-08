@@ -5,10 +5,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, X, MapPin } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
 import WhatsAppIcon from "./WhatsAppIcon";
-import { fullAddress, siteConfig, whatsappLink } from "@/config/site";
+import { siteConfig, whatsappLink } from "@/config/site";
 
 /** True when `href` is the page we're on (handles trailing slashes). */
 function isActive(pathname: string, href: string): boolean {
@@ -31,21 +31,10 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50">
-      {/* Thin top bar with address — hidden on small phones */}
-      <div className="hidden bg-navy-900 text-white/80 md:block">
-        <div className="container-site flex h-9 items-center justify-between text-xs">
-          <span className="inline-flex items-center gap-2">
-            <MapPin className="h-3.5 w-3.5 text-yellow" aria-hidden="true" />
-            {fullAddress}
-          </span>
-          <span className="font-medium tracking-wide text-yellow">{siteConfig.category}</span>
-        </div>
-      </div>
-
       <nav
         aria-label="Main navigation"
         className={`border-b bg-white/95 backdrop-blur transition-shadow ${
-          scrolled ? "border-transparent shadow-[0_6px_24px_-12px_rgb(15_24_64/0.25)]" : "border-line"
+          scrolled ? "border-transparent shadow-[0_6px_24px_-12px_rgb(0_30_92/0.25)]" : "border-line"
         }`}
       >
         <div className="container-site flex h-20 items-center justify-between gap-6">

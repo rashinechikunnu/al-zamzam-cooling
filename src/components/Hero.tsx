@@ -26,15 +26,19 @@ export default function Hero() {
 
       <div className="container-site pb-28 pt-20 sm:pb-36 sm:pt-28 lg:pb-44 lg:pt-36">
         <div className="max-w-3xl animate-fade-up">
-          <p className="inline-flex items-center gap-2 rounded-full border border-yellow/40 bg-yellow/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-yellow">
-            {siteConfig.tagline}
+          <p className="inline-flex flex-wrap items-center gap-x-3 gap-y-1 rounded-full border border-yellow/40 bg-yellow/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-yellow">
+            <span>Since {siteConfig.foundedYear}</span>
+            <span aria-hidden="true" className="h-1 w-1 rounded-full bg-yellow/60" />
+            <span>Office in {siteConfig.officeLocation}</span>
+            <span aria-hidden="true" className="h-1 w-1 rounded-full bg-yellow/60" />
+            <span>Working All Over UAE</span>
           </p>
-          <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] !text-white sm:text-5xl lg:text-7xl">
+          <h1 className="mt-6 text-4xl font-bold leading-[1.1] !text-white sm:text-5xl lg:text-[4.25rem]">
             Complete Cooling Solutions for <span className="text-yellow">Every Space</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80 sm:text-xl">
             Professional air conditioning, refrigeration, chiller, freezer and cold room installation and
-            maintenance services in Ajman, UAE.
+            maintenance services. Based in Ajman, working all over the UAE.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4">
             <Link href="/services/" className="btn btn-primary">

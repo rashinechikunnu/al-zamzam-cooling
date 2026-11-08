@@ -19,7 +19,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "About Us — HVAC & Refrigeration Company in Ajman",
   description:
-    "Al Zamams is a cooling solutions company in Ajman, UAE, providing AC, refrigeration, chiller, freezer, cold room and commercial kitchen equipment installation and maintenance.",
+    "Al ZamZam Cooling is a cooling solutions company with its office in Ajman, working all over the UAE since 2020, providing AC, refrigeration, chiller, freezer, cold room and commercial kitchen equipment installation and maintenance.",
   path: "/about/",
 });
 
@@ -51,8 +51,8 @@ export default function AboutPage() {
     <>
       <PageHeader
         breadcrumb="About"
-        title="About Al Zamams"
-        description="Al Zamams is a cooling solutions service company based in Ajman, UAE. We provide air conditioning, refrigeration, chiller, freezer, cold room and commercial kitchen equipment installation and maintenance services."
+        title="About Al ZamZam Cooling"
+        description="Al ZamZam Cooling is a cooling solutions service company based in Ajman and working all over the UAE since 2020. We provide air conditioning, refrigeration, chiller, freezer, cold room and commercial kitchen equipment installation and maintenance services."
         image={images.ducting}
       />
 
@@ -63,7 +63,7 @@ export default function AboutPage() {
             <SectionHeading eyebrow="Who We Are" title="The Complete Cooling Solution" />
             <div className="mt-6 space-y-5 text-lg leading-relaxed text-body/80">
               <p>
-                Al Zamams works with businesses that depend on reliable cooling — from offices and retail spaces to
+                Established in 2020, Al ZamZam Cooling works with businesses that depend on reliable cooling — from offices and retail spaces to
                 restaurants, food storage operations and industrial facilities.
               </p>
               <p>
@@ -72,8 +72,8 @@ export default function AboutPage() {
                 maintenance contracts, and the maintenance of commercial kitchen equipment.
               </p>
               <p>
-                Based in Industrial Area 1, Ajman, we aim to be a single, dependable point of contact for cooling
-                installation and maintenance.
+                Our office is in Industrial Area 1, Ajman, and our team works on projects all over the UAE. We aim
+                to be a single, dependable point of contact for cooling installation and maintenance.
               </p>
             </div>
           </div>
@@ -88,9 +88,9 @@ export default function AboutPage() {
               />
             </div>
             <div className="absolute -bottom-6 left-6 right-6 rounded-md bg-navy p-6 text-white shadow-card-hover sm:left-auto sm:max-w-xs">
-              <p className="font-display text-lg font-bold text-yellow">Ajman, UAE</p>
+              <p className="font-display text-lg font-bold text-yellow">Since 2020</p>
               <p className="mt-1 text-sm text-white/75">
-                AC, refrigeration and cooling services for commercial and industrial requirements.
+                Office in Ajman · Working all over the UAE on AC, refrigeration and cooling projects.
               </p>
             </div>
           </div>
@@ -163,7 +163,7 @@ export default function AboutPage() {
 
       <CTA
         title="Let's Discuss Your Cooling Requirements"
-        description="Get in touch with Al Zamams for installation, servicing or a maintenance contract."
+        description="Get in touch with Al ZamZam Cooling for installation, servicing or a maintenance contract."
       />
     </>
   );
