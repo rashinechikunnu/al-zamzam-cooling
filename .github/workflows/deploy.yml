@@ -36,9 +36,9 @@ jobs:
           node-version: 24
           cache: npm
 
-      # Reads your Pages settings. Gives us:
-      #   base_url  → e.g. https://www.your-domain.com  or  https://user.github.io/repo
-      #   base_path → ""  (custom domain)                or  "/repo"
+      # Reads your Pages settings. base_url is the live address,
+      # e.g. https://user.github.io/alzamam or https://www.your-domain.com
+      # (the /alzamam base path itself is set in next.config.ts).
       - name: Read GitHub Pages settings
         id: pages
         uses: actions/configure-pages@v5
@@ -52,7 +52,6 @@ jobs:
       - name: Build static site
         run: npm run build
         env:
-          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
           NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.base_url }}
 
       - name: Upload the "out" folder

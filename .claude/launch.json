@@ -3,14 +3,20 @@
   "configurations": [
     {
       "name": "static-out",
-      "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "4173", "--directory", "out"],
-      "port": 4173
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "scripts/preview.mjs"
+      ],
+      "port": 4173,
+      "url": "http://localhost:4173"
     },
     {
       "name": "dev",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
       "port": 3000
     }
   ]

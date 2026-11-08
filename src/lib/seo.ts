@@ -33,9 +33,7 @@ export function pageMetadata({
       url: path,
       images: [
         {
-          url: `${images.hero.src}?w=1200&h=630&fit=crop&auto=format&q=70`,
-          width: 1200,
-          height: 630,
+          url: images.hero.src,
           alt: images.hero.alt,
         },
       ],
@@ -63,7 +61,7 @@ export function localBusinessJsonLd() {
     description: siteConfig.description,
     url: siteConfig.url,
     logo: `${siteConfig.url}/logo/alzamzam-logo.svg`,
-    image: `${images.hero.src}?w=1200&auto=format&q=70`,
+    image: images.hero.src,
     address: {
       "@type": "PostalAddress",
       streetAddress: `${address.line1}, ${address.line2}`,

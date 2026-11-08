@@ -13,9 +13,9 @@ You need **Node.js 20.9 or newer** (check with `node -v`).
 | Command | What it does |
 | --- | --- |
 | `npm install` | Downloads the libraries listed in `package.json` into `node_modules/`. Run once after cloning. |
-| `npm run dev` | Starts a live development server at http://localhost:3000. Pages reload as you save files. |
+| `npm run dev` | Starts a live development server at http://localhost:3000/alzamam/. Pages reload as you save files. |
 | `npm run build` | Builds the final static website into the `out/` folder. |
-| `npm run preview` | Serves the built `out/` folder at http://localhost:4173 (uses Python) so you can check the real result. |
+| `npm run preview` | Serves the built `out/` folder at http://localhost:4173/alzamam/, the same way GitHub Pages will. |
 | `npm run lint` | Checks the code for common mistakes. |
 
 ---
@@ -75,7 +75,6 @@ al-zamams/
 │   ├── data/services.ts           ← The 5 services (text, icons, images)
 │   ├── data/images.ts             ← All photo URLs + alt text
 │   ├── lib/seo.ts                 ← SEO helper + LocalBusiness structured data
-│   ├── lib/image-loader.ts        ← Image sizing for static hosting
 │   └── types/index.ts             ← TypeScript "shapes" for services, images, etc.
 ├── next.config.ts                 ← Next.js settings (static export)
 └── package.json                   ← Project name, scripts and libraries
@@ -101,7 +100,7 @@ out/contact/index.html  → /contact/
 out/404.html, sitemap.xml, robots.txt, _next/ (CSS, JS)
 ```
 
-That folder can be hosted anywhere that serves files — here, GitHub Pages. Because there is no server, features like API routes, server actions and the built-in image optimiser are not used. Photos are resized by Unsplash's image CDN instead (`src/lib/image-loader.ts`).
+That folder can be hosted anywhere that serves files — here, GitHub Pages. Because there is no server, features like API routes, server actions and the built-in image optimiser are not used. Images are set to `unoptimized: true`, so each photo URL in `src/data/images.ts` asks Unsplash for a fixed width instead.
 
 ### How the contact form works
 
@@ -119,14 +118,14 @@ The "Enquire About This Service" buttons on the Services page link to `/contact/
 
 Install Git and create a free GitHub account first. Then:
 
-1. On GitHub, click **New repository**. Name it, for example, `al-zamams-website`. Leave it empty (no README).
+1. On GitHub, click **New repository**. Name it `alzamam` (it must match `basePath: "/alzamam"` in `next.config.ts`). Leave it empty (no README).
 2. In this project folder, run the commands below. `git` was already initialised by the project setup.
 
 ```bash
 git add .
 git commit -m "Al ZamZam Cooling website"
 git branch -M main
-git remote add origin https://github.com/<your-username>/al-zamams-website.git
+git remote add origin https://github.com/<your-username>/alzamam.git
 git push -u origin main
 ```
 
@@ -140,12 +139,11 @@ What these do: `add` stages all files, `commit` saves a snapshot, `branch -M mai
 2. Under **Build and deployment → Source**, choose **GitHub Actions**.
 3. Push any change to `main` (or open the **Actions** tab → *Deploy to GitHub Pages* → **Run workflow**).
 4. Wait for the green tick in the **Actions** tab (about 1–2 minutes).
-5. The site is live at `https://<your-username>.github.io/al-zamams-website/`.
+5. The site is live at `https://<your-username>.github.io/alzamam/`.
 
 The workflow (`.github/workflows/deploy.yml`) automatically:
 
 - installs dependencies, lints and builds the site,
-- sets the correct **base path** (`/al-zamams-website` without a custom domain, empty with one), so links and CSS work,
 - sets the correct **site URL** for canonical tags, the sitemap and robots.txt,
 - uploads `out/` and publishes it.
 
@@ -184,9 +182,17 @@ DNS changes can take from a few minutes up to 24–48 hours to spread.
 
 Back in **Settings → Pages**, once the DNS check passes, tick **Enforce HTTPS**. GitHub issues a free SSL certificate automatically. If the box is greyed out, wait a little longer for DNS and the certificate.
 
-### Step D: Redeploy
+### Step D: Remove the base path, then redeploy
 
-Run the workflow again (Actions → *Deploy to GitHub Pages* → **Run workflow**) so canonical URLs, the sitemap and robots.txt use your new domain. You can also hard-code the domain in `src/config/site.ts` → `url`.
+With a custom domain the site lives at the root (`https://www.your-domain.com/`), not under `/alzamam`. In `next.config.ts`, change:
+
+```ts
+const basePath = "/alzamam";   →   const basePath = "";
+```
+
+Also change `BASE_PATH` at the top of `scripts/preview.mjs` to `""`.
+
+Then commit, push, and run the workflow again (Actions → *Deploy to GitHub Pages* → **Run workflow**) so canonical URLs, the sitemap and robots.txt use your new domain. You can also hard-code the domain in `src/config/site.ts` → `url`.
 
 ### Step E: Search engines
 
