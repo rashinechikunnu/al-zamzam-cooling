@@ -33,7 +33,7 @@ export default function Hero() {
             <span aria-hidden="true" className="h-1 w-1 rounded-full bg-yellow/60" />
             <span>Working All Over UAE</span>
           </p>
-          <h1 className="mt-6 text-4xl font-bold leading-[1.1] !text-white sm:text-5xl lg:text-[4.25rem]">
+          <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] !text-white sm:text-5xl lg:text-7xl">
             Complete Cooling Solutions for <span className="text-yellow">Every Space</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80 sm:text-xl">

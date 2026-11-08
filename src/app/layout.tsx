@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Barlow, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -15,11 +15,10 @@ import { localBusinessJsonLd } from "@/lib/seo";
 
 // Fonts are downloaded at build time and served from your own site (fast, no layout shift).
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
-// Poppins matches the font used in the Al ZamZam Cooling logo.
-const poppins = Poppins({
+const barlow = Barlow({
   subsets: ["latin"],
   weight: ["500", "600", "700", "800"],
-  variable: "--font-poppins",
+  variable: "--font-barlow",
   display: "swap",
 });
 
@@ -50,7 +49,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${inter.variable} ${barlow.variable}`}>
       <body className="flex min-h-screen flex-col">
         <a
           href="#main"

@@ -36,7 +36,7 @@ export default function PageHeader({ title, description, image, breadcrumb }: Pa
           </ol>
         </nav>
         <div className="max-w-3xl animate-fade-up">
-          <h1 className="mt-5 text-4xl font-bold leading-tight !text-white sm:text-5xl lg:text-6xl">{title}</h1>
+          <h1 className="mt-5 text-4xl font-extrabold leading-tight !text-white sm:text-5xl lg:text-6xl">{title}</h1>
           <p className="mt-5 text-lg leading-relaxed text-white/80 sm:text-xl">{description}</p>
         </div>
       </div>

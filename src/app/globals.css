@@ -17,7 +17,7 @@
   --color-line: #e2e6ef;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-poppins), var(--font-inter), ui-sans-serif, sans-serif;
+  --font-display: var(--font-barlow), var(--font-inter), ui-sans-serif, sans-serif;
 
   --shadow-card: 0 1px 2px rgb(0 30 92 / 0.04), 0 8px 24px -8px rgb(0 30 92 / 0.12);
   --shadow-card-hover: 0 2px 4px rgb(0 30 92 / 0.06), 0 20px 40px -12px rgb(0 30 92 / 0.25);
@@ -63,7 +63,7 @@ html {
   h4 {
     font-family: var(--font-display);
     color: var(--color-navy);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
   }
 
   /* Visible keyboard focus for accessibility */
