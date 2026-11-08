@@ -1,26 +1,116 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+ * BRAND DESIGN TOKENS
+ * Defined once here, then usable as Tailwind classes, for example:
+ *   bg-navy, text-yellow, bg-light, text-body, font-display
+ */
+@theme {
+  --color-navy: #17245d;
+  --color-navy-700: #1e2e72;
+  --color-navy-900: #0f1840;
+  --color-yellow: #f9d500;
+  --color-yellow-600: #e0c000;
+  --color-dark: #111827;
+  --color-light: #f7f8fc;
+  --color-body: #333333;
+  --color-line: #e3e6f0;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-barlow), var(--font-inter), ui-sans-serif, sans-serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --shadow-card: 0 1px 2px rgb(15 24 64 / 0.04), 0 8px 24px -8px rgb(15 24 64 / 0.12);
+  --shadow-card-hover: 0 2px 4px rgb(15 24 64 / 0.06), 0 20px 40px -12px rgb(15 24 64 / 0.25);
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+html {
+  scroll-behavior: smooth;
+  /* Keeps #anchor targets visible below the sticky navbar */
+  scroll-padding-top: 6rem;
+}
+
+@media (min-width: 768px) {
+  html {
+    /* Taller header (top bar + navbar + services jump links) on tablets and up */
+    scroll-padding-top: 11.5rem;
+  }
+}
+
+@layer base {
+  body {
+    background: #ffffff;
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    color: var(--color-navy);
+    letter-spacing: -0.01em;
+  }
+
+  /* Visible keyboard focus for accessibility */
+  :focus-visible {
+    outline: 3px solid var(--color-yellow);
+    outline-offset: 2px;
+  }
+}
+
+/* Reusable button styles */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-6 py-3.5 text-[0.95rem] font-semibold transition-all duration-200 active:scale-[0.98];
+  }
+  .btn-primary {
+    @apply bg-yellow text-navy hover:bg-yellow-600 hover:shadow-lg hover:shadow-yellow/20;
+  }
+  .btn-navy {
+    @apply bg-navy text-white hover:bg-navy-700;
+  }
+  .btn-outline-light {
+    @apply border border-white/40 text-white hover:border-white hover:bg-white/10;
+  }
+  .btn-outline {
+    @apply border border-navy/25 text-navy hover:border-navy hover:bg-navy hover:text-white;
+  }
+  .btn-whatsapp {
+    @apply bg-[#25D366] text-white hover:bg-[#1ebe5a];
+  }
+  .container-site {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-navy;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply block h-[3px] w-8 bg-yellow;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
