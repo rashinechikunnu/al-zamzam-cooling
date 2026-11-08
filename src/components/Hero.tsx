@@ -26,19 +26,20 @@ export default function Hero() {
 
       <div className="container-site pb-28 pt-20 sm:pb-36 sm:pt-28 lg:pb-44 lg:pt-36">
         <div className="max-w-3xl animate-fade-up">
-          <p className="inline-flex flex-wrap items-center gap-x-3 gap-y-1 rounded-full border border-yellow/40 bg-yellow/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-yellow">
-            <span>Since {siteConfig.foundedYear}</span>
+          {/* Badge: smaller letter-spacing on phones so it stays on one line */}
+          <p className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border border-yellow/40 bg-yellow/10 px-3 py-1.5 text-[0.6rem] font-bold uppercase tracking-[0.06em] text-yellow max-[359px]:gap-1 max-[359px]:px-2.5 max-[359px]:tracking-[0.02em] min-[400px]:gap-2 min-[400px]:text-[0.65rem] min-[400px]:tracking-[0.1em] sm:gap-3 sm:px-4 sm:text-xs sm:tracking-[0.16em]">
+            <span>Est. {siteConfig.foundedYear}</span>
             <span aria-hidden="true" className="h-1 w-1 rounded-full bg-yellow/60" />
-            <span>Office in {siteConfig.officeLocation}</span>
+            <span>Based in {siteConfig.officeLocation}</span>
             <span aria-hidden="true" className="h-1 w-1 rounded-full bg-yellow/60" />
-            <span>Working All Over UAE</span>
+            <span>Serving All UAE</span>
           </p>
           <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] !text-white sm:text-5xl lg:text-7xl">
             Complete Cooling Solutions for <span className="text-yellow">Every Space</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80 sm:text-xl">
-            Professional air conditioning, refrigeration, chiller, freezer and cold room installation and
-            maintenance services. Based in Ajman, working all over the UAE.
+            Expert air conditioning, refrigeration, chiller, freezer and cold room installation, maintenance and
+            repair services across the UAE.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4">
             <Link href="/services/" className="btn btn-primary">
