@@ -1,10 +1,10 @@
-// Serves the built "out" folder at http://localhost:4173/al-zamzam-cooling/
+// Serves the built "out" folder at http://localhost:4173/
 // exactly like GitHub Pages will. Run "npm run build" first, then "npm run preview".
 import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
 import { extname, join, normalize } from "node:path";
 
-const BASE_PATH = "/al-zamzam-cooling"; // must match basePath in next.config.ts
+const BASE_PATH = ""; // must match basePath in next.config.ts ("" for the custom domain)
 const PORT = 4173;
 const OUT_DIR = join(process.cwd(), "out");
 
@@ -36,7 +36,8 @@ async function findFile(urlPath) {
 createServer(async (req, res) => {
   const url = new URL(req.url, `http://localhost:${PORT}`);
 
-  if (url.pathname === "/" || url.pathname === BASE_PATH) {
+  // With a base path (e.g. "/repo"), send "/" and "/repo" to "/repo/".
+  if (BASE_PATH && (url.pathname === "/" || url.pathname === BASE_PATH)) {
     res.writeHead(302, { Location: `${BASE_PATH}/` }).end();
     return;
   }

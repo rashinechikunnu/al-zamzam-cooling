@@ -13,9 +13,9 @@ You need **Node.js 20.9 or newer** (check with `node -v`).
 | Command | What it does |
 | --- | --- |
 | `npm install` | Downloads the libraries listed in `package.json` into `node_modules/`. Run once after cloning. |
-| `npm run dev` | Starts a live development server at http://localhost:3000/al-zamzam-cooling/. Pages reload as you save files. |
+| `npm run dev` | Starts a live development server at http://localhost:3000/. Pages reload as you save files. |
 | `npm run build` | Builds the final static website into the `out/` folder. |
-| `npm run preview` | Serves the built `out/` folder at http://localhost:4173/al-zamzam-cooling/, the same way GitHub Pages will. |
+| `npm run preview` | Serves the built `out/` folder at http://localhost:4173/, the same way GitHub Pages will. |
 | `npm run lint` | Checks the code for common mistakes. |
 
 ---
@@ -77,6 +77,7 @@ al-zamams/
 │   ├── lib/seo.ts                 ← SEO helper + LocalBusiness structured data
 │   └── types/index.ts             ← TypeScript "shapes" for services, images, etc.
 ├── next.config.ts                 ← Next.js settings (static export)
+├── postcss.config.mjs             ← Runs Tailwind CSS (required for styling)
 └── package.json                   ← Project name, scripts and libraries
 ```
 
@@ -118,7 +119,7 @@ The "Enquire About This Service" buttons on the Services page link to `/contact/
 
 Install Git and create a free GitHub account first. Then:
 
-1. On GitHub, click **New repository**. Name it `al-zamzam-cooling` (it must match `basePath: "/al-zamzam-cooling"` in `next.config.ts`). Leave it empty (no README).
+1. On GitHub, click **New repository**. Name it `al-zamzam-cooling`. Leave it empty (no README).
 2. In this project folder, run the commands below. `git` was already initialised by the project setup.
 
 ```bash
@@ -139,7 +140,7 @@ What these do: `add` stages all files, `commit` saves a snapshot, `branch -M mai
 2. Under **Build and deployment → Source**, choose **GitHub Actions**.
 3. Push any change to `main` (or open the **Actions** tab → *Deploy to GitHub Pages* → **Run workflow**).
 4. Wait for the green tick in the **Actions** tab (about 1–2 minutes).
-5. The site is live at `https://rashinechikunnu.github.io/al-zamzam-cooling/`.
+5. The site is live at **https://alzamzamcooling.com** (the custom domain set in Settings → Pages).
 
 The workflow (`.github/workflows/deploy.yml`) automatically:
 
@@ -182,21 +183,18 @@ DNS changes can take from a few minutes up to 24–48 hours to spread.
 
 Back in **Settings → Pages**, once the DNS check passes, tick **Enforce HTTPS**. GitHub issues a free SSL certificate automatically. If the box is greyed out, wait a little longer for DNS and the certificate.
 
-### Step D: Remove the base path, then redeploy
+### Step D: Settings for a custom domain (already done for alzamzamcooling.com)
 
-With a custom domain the site lives at the root (`https://www.your-domain.com/`), not under `/al-zamzam-cooling`. In `next.config.ts`, change:
+A custom domain serves the site from the root (`https://alzamzamcooling.com/`), so:
 
-```ts
-const basePath = "/al-zamzam-cooling";   →   const basePath = "";
-```
-
-Also change `BASE_PATH` at the top of `scripts/preview.mjs` to `""`.
-
-Then commit, push, and run the workflow again (Actions → *Deploy to GitHub Pages* → **Run workflow**) so canonical URLs, the sitemap and robots.txt use your new domain. You can also hard-code the domain in `src/config/site.ts` → `url`.
+- `next.config.ts` has **no** `basePath` and **no** `assetPrefix`.
+- `BASE_PATH` in `scripts/preview.mjs` is `""`.
+- `url` in `src/config/site.ts` is `https://alzamzamcooling.com`. This is used for canonical URLs, the sitemap and robots.txt.
+- Tailwind CSS runs through `postcss.config.mjs`. **Do not delete this file**: without it the live site loses all styling.
 
 ### Step E: Search engines
 
-Add the site to [Google Search Console](https://search.google.com/search-console) and submit `https://www.your-domain.com/sitemap.xml`. A **Google Business Profile** for Al ZamZam Cooling also helps local "Ajman" searches. Once it exists, paste its share link into `mapsLink` in `src/config/site.ts`.
+Add the site to [Google Search Console](https://search.google.com/search-console) and submit `https://alzamzamcooling.com/sitemap.xml`. A **Google Business Profile** for Al ZamZam Cooling also helps local "Ajman" searches. Once it exists, paste its share link into `mapsLink` in `src/config/site.ts`.
 
 ---
 

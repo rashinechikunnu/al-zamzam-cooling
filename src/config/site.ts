@@ -18,11 +18,9 @@ export const siteConfig = {
 
   /**
    * Full website address, WITHOUT a trailing slash.
-   * The GitHub Actions workflow fills this in automatically from your
-   * GitHub Pages settings (NEXT_PUBLIC_SITE_URL). Once your custom domain
-   * is confirmed you can also hard-code it here, e.g. "https://www.example.ae".
+   * Used for canonical URLs, Open Graph tags, sitemap.xml and robots.txt.
    */
-  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://www.example.com").replace(/\/$/, ""),
+  url: "https://alzamzamcooling.com",
 
   title: "Al ZamZam Cooling | AC Installation & Refrigeration Services in Ajman & UAE",
   description:
