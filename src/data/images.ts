@@ -31,24 +31,24 @@ export const images = {
     alt: "Commercial air conditioning condenser units with fans and refrigerant pipework",
   },
   acService: {
-    src: unsplash("photo-1792799888905-8696bd32a11a", 1000),
-    alt: "Technician servicing an outdoor air conditioning unit with refrigerant gauges",
+    src: localImage("ac-installation-service.jpg"),
+    alt: "Technician servicing a wall-mounted split air conditioning unit",
   },
   freezer: {
-    src: unsplash("photo-1601599967100-f16100982063", 1000),
-    alt: "Commercial display freezer stocked with frozen products",
+    src: localImage("chiller-freezer-service.jpg"),
+    alt: "Commercial glass-door chiller and upright freezer stocked with food",
   },
   maintenance: {
-    src: unsplash("photo-1748442001865-5583ec02ae22", 1000),
-    alt: "Maintenance technician inspecting industrial pipes and valves",
+    src: localImage("amc-maintenance.jpg"),
+    alt: "Maintenance checklist with wrench and screwdriver for an annual maintenance contract",
   },
   coldRoom: {
-    src: unsplash("photo-1741739813128-cb658a9a0f9a", 1000),
-    alt: "Frozen goods stored in metal cages inside a cold storage room",
+    src: localImage("cold-room-installation.jpg"),
+    alt: "Insulated panel cold room with a refrigeration unit and cold room door",
   },
   kitchen: {
-    src: unsplash("photo-1589109807644-924edf14ee09", 1000),
-    alt: "Commercial kitchen with stainless steel equipment and shelving",
+    src: localImage("kitchen-equipment-maintenance.jpg"),
+    alt: "Technician repairing the refrigeration system of a commercial kitchen prep counter",
   },
   acUnits: {
     src: unsplash("photo-1667983453881-4992fe86ab1b", 1920),
